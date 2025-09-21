@@ -4,7 +4,7 @@ export const authService = {
   async login(email, password) {
     try {
       console.log('🔐 Attempting login with:', { email });
-      const response = await api.post('/login', { email, password });
+      const response = await api.post('/auth/login', { email, password });
       console.log('✅ Login response:', response.data);
       return response.data;
     } catch (error) {
@@ -16,7 +16,7 @@ export const authService = {
   async register(userData) {
     try {
       console.log('📝 Attempting registration with:', userData);
-      const response = await api.post('/register', userData);
+      const response = await api.post('/auth/register', userData);
       console.log('✅ Registration response:', response.data);
       return response.data;
     } catch (error) {
@@ -26,7 +26,7 @@ export const authService = {
   },
 
   async getProfile() {
-    const response = await api.get('/profile');
+    const response = await api.get('/auth/profile');
     return response.data;
   },
 
